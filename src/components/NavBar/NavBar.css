@@ -16,5 +16,11 @@
 
 .navegador {
     display: flex;
+    justify-content: space-between;
     background-color: black;
+}
+
+.carrito {
+    display: flex;
+    justify-content: flex-end;
 }
