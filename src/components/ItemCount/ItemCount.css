@@ -1,0 +1,18 @@
+.divContador {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+} 
+
+.divContador button {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+}
+
+.botonComprar {
+    display: flex;
+    justify-content: center;
+}
