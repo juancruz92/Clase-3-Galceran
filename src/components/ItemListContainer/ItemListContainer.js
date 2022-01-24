@@ -1,6 +1,8 @@
-function Contenedor () {
-    return <div className = "contenedor">
-        <p>Esto es un contenedor</p>
+import ItemList from "../ItemList/ItemList"
+
+function Contenedor() {
+    return <div className="contenedor">
+        <ItemList />
     </div>
 }
 
