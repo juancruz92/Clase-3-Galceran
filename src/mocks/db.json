@@ -1,0 +1,27 @@
+{
+    "productos": [
+        {
+            "id": 0,
+            "name": "Zapatilla Nike",
+            "description": "Nike Dunk",
+            "price": 15000,
+            "img": "https://picsum.photos/200"
+        },
+        {
+            "id": 1,
+            "name": "Zapatilla Adidas",
+            "description": "Adidas Grand Court",
+            "price": 16000,
+            "img": "https://picsum.photos/200"
+        },
+        {
+            "id": 2,
+            "name": "Zapatilla Reebook",
+            "description": "Reebook Nanoflex TR",
+            "price": 14000,
+            "img": "https://picsum.photos/200"
+        }
+    ]
+}
+
+
