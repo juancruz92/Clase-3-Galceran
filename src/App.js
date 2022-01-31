@@ -1,8 +1,14 @@
 import './components/Utilidades/Utilidades.css';
 import './components/NavBar/NavBar.css';
 import './components/ItemListContainer/ItemListContainer.css';
+import './components/ItemList/itemList.css'
 import Navbar from './components/NavBar/NavBar.js';
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Running from './pages/Running';
+import Urban from './pages/Urban';
+import ProductDetailPage from './pages/ProductDetailPage'
+
 
 
 
@@ -10,12 +16,18 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <ItemDetailContainer />
-    </>
+      <Routes>
+        <Route path="/">
+          <Route index element={<HomePage />} />
+          <Route path =":productId" element = {<ProductDetailPage />} />
+          <Route path ="Running" element={<Running />}/>
+          <Route path ="Urban" element = {<Urban />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
 
-  );
+  )
 }
-
 export default App;
