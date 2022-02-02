@@ -15,7 +15,21 @@
 
 .cardContainer {
     display: flex;
-    justify-content: center;
-    align-content: center;
 }
 
+.productDetailDiv {
+    display: flex;
+    flex-flow: column;
+    margin: 10px;
+}
+
+.detailPageCard {
+    display: flex;
+    padding: 40px;
+    margin: 20px;
+    border: solid 1px;
+    border-radius: 2px;
+    background-color: wheat;
+    width: 100%;
+    height: 200px;
+}
