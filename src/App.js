@@ -8,11 +8,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Running from './pages/Running';
 import Urban from './pages/Urban';
-import ProductDetailPage from './pages/ProductDetailPage'
-
-
-
-
+import ProductDetailPage from './pages/ProductDetailPage';
+import Cart from './pages/Cart';
 
 
 function App() {
@@ -22,9 +19,10 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<HomePage />} />
-          <Route path =":productId" element = {<ProductDetailPage />} />
-          <Route path ="Running" element={<Running />}/>
-          <Route path ="Urban" element = {<Urban />} />
+          <Route path=":productId" element={<ProductDetailPage />} />
+          <Route path="Running" element={<Running />} />
+          <Route path="Urban" element={<Urban />} />
+          <Route path="Cart" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -7,15 +7,15 @@ const ItemList = () => {
 
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState (null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     fetch(URL)
       .then((response) => response.json())
       .then((json) => setProducts(json))
-      .catch((err) => setProducts(err))
-      .finally (() => setIsLoading(false));
+      .catch((err) => setError(err))
+      .finally(() => setIsLoading(false));
   }, []);
 
   if (isLoading) {
@@ -23,11 +23,11 @@ const ItemList = () => {
   } else if (error) {
     return <p>Ha habido un error</p>
   } else {
-    return  <div className="itemListDiv">
-    {products.map((product) => {
-      return <Item key={product.id} product={product} />
-    })}
-  </div>
+    return <div className="itemListDiv">
+      {products.map((product) => {
+        return <Item key={product.id} product={product} />
+      })}
+    </div>
   }
 };
 
