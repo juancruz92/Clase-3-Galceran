@@ -1,20 +1,7 @@
-function ItemCount({
-  stock,
-  initial,
-  counter,
-  setCounter,
-  quiereComprar,
-  setQuiereComprar,
-}) {
+function ItemCount({ stock, initial, counter, setCounter }) {
   initial = 1;
-  stock = 5;
-  const handleClick = () => {
-    setQuiereComprar(counter);
+  stock = 20;
 
-    if ((quiereComprar = !0)) {
-      console.log("deberia borrarse item count");
-    }
-  };
   const sumar = () => {
     if (counter < stock) {
       setCounter(counter + 1);
@@ -22,7 +9,6 @@ function ItemCount({
       alert("no hay mas stock");
     }
   };
-  
 
   const restar = () => {
     if (counter > initial) {
@@ -39,9 +25,6 @@ function ItemCount({
           <button onClick={restar}>-</button>
           <p>{counter}</p>
           <button onClick={sumar}>+</button>
-        </div>
-        <div className="botonComprar">
-          <button onClick={handleClick}>Comprar</button>
         </div>
       </div>
     </>
