@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
       const newItem = { item, quantity };
       setCart((prevState) => [...prevState, newItem]);
     } else {
-      alert("carlos se vendio, al barrio de lanuz");
+      alert("ya tienes este producto en tu carrito");
     }
   };
 

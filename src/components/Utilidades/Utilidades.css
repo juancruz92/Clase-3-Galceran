@@ -1,3 +1,7 @@
 a {
-    color: white;
+    color: inherit;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
 }

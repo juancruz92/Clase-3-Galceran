@@ -7,9 +7,9 @@ const Item = ({ product }) => {
     <div className="cardContainer">
       <div className="card">
         <img src={product.img} alt={product.name} />
-        <p>Nombre: {product.name}</p>
-        <p>Descripcion: {product.description}</p>
-        <p>Precio: {product.price}</p>
+        <p>{product.name}</p>
+        <p>{product.description}</p>
+        <p>${product.price}</p>
         <button onClick={() => navigate(`/products/${product.id}`)}>Ver mas</button>
       </div>
     </div>
