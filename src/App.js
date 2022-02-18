@@ -6,8 +6,7 @@ import "./components/ItemCount/ItemCount.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar/NavBar.js";
 import HomePage from "./pages/HomePage";
-import Running from "./pages/Running";
-import Urban from "./pages/Urban";
+import Categorys from "./pages/Categorys";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
@@ -23,8 +22,9 @@ function App() {
             <Route path="products">
               <Route path=":productId" element={<ProductDetailPage />} />
             </Route>
-            <Route path="Running" element={<Running />} />
-            <Route path="Urban" element={<Urban />} />
+            <Route path="Categorys">
+              <Route path=":category" element={<Categorys />} />
+            </Route>
             <Route path="Cart" element={<Cart />} />
           </Route>
         </Routes>

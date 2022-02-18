@@ -1,7 +1,6 @@
 import Item from "../Item/Item.js";
 import { useState, useEffect } from "react";
-
-const URL = "http://localhost:3001/productos";
+import { getFirestore } from "../../firebase/index.js";
 
 const ItemList = () => {
   const [products, setProducts] = useState([]);
@@ -9,13 +8,35 @@ const ItemList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch(URL)
-      .then((response) => response.json())
-      .then((json) => setProducts(json))
-      .catch((err) => setError(err))
-      .finally(() => setIsLoading(false));
+    const db = getFirestore();
+    const productCollection = db.collection("productos");
+
+    const getDataFromFireStore = async () => {
+      setIsLoading(true);
+      try {
+        const response = await productCollection.get();
+        if (response.empty) console.log("no hay productos");
+        setProducts(
+          response.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    getDataFromFireStore();
+
+    // setIsLoading(true);
+    // fetch(URL)
+    //   .then((response) => response.json())
+    //   .then((json) => setProducts(json))
+    //   .catch((err) => setError(err))
+    //   .finally(() => setIsLoading(false));
   }, []);
+
+  console.log(products);
 
   if (isLoading) {
     return <p>Cargando los productos...</p>;

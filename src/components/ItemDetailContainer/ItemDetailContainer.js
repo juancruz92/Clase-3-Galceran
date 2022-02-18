@@ -1,21 +1,29 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router";
+import { getFirestore } from "../../firebase";
 
 function ItemDetailContainer() {
   const { productId } = useParams();
   const [counter, setCounter] = useState(0);
   const [productos, setProductos] = useState([]);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(false);
-    const URL = `http://localhost:3001/productos/${productId}`;
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => setProductos(data))
-      .catch((err) => setError(err));
+    const db = getFirestore();
+    const productCollection = db.collection("productos");
+    const selectedProduct = productCollection.doc(productId);
+
+    setIsLoading(true);
+    selectedProduct
+      .get()
+      .then((response) => {
+        if (!response.exists) console.log("el producto no existe");
+        setProductos({ ...response.data(), id: response.id });
+      })
+      .catch((err) => setError(err))
+      .finally(() => setIsLoading(false));
   }, [productId]);
 
   if (isLoading) {

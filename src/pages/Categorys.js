@@ -1,16 +1,18 @@
 import Item from "../components/Item/Item"
 import { useState, useEffect } from "react";
 import { getFirestore } from "../firebase/index"
+import { useParams } from "react-router-dom";
 
 
-const Urban = () => {
+const Categorys = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { category } = useParams()
 
   useEffect(() => {
     const db = getFirestore();
-    const productCollection = db.collection("productos").where("category", "==", "Urban")
+    const productCollection = db.collection("productos").where("category", "==", category)
 
     const getDataFromFireStore = async () => {
       setIsLoading(true);
@@ -35,7 +37,7 @@ const Urban = () => {
     //   .then((json) => setProducts(json))
     //   .catch((err) => setError(err))
     //   .finally(() => setIsLoading(false));
-  }, []);
+  }, [category]);
 
   console.log(products);
 
@@ -46,6 +48,7 @@ const Urban = () => {
   } else {
     return (
       <div className="itemListDiv">
+          <h1>{category}</h1>
         {products.map((product) => {
           return <Item key={product.id} product={product} />;
         })}
@@ -55,4 +58,4 @@ const Urban = () => {
 };
 
 
-export default Urban;
+export default Categorys;
