@@ -8,8 +8,10 @@ import Navbar from "./components/NavBar/NavBar.js";
 import HomePage from "./pages/HomePage";
 import Categorys from "./pages/Categorys";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import CheckOutPage from "./pages/CheckoutPage";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
               <Route path=":category" element={<Categorys />} />
             </Route>
             <Route path="Cart" element={<Cart />} />
+            <Route path="CheckOut/:orderId" element={<CheckOutPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

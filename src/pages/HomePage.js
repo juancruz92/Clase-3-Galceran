@@ -1,8 +1,9 @@
 import ItemList from "../components/ItemList/ItemList";
 
 const HomePage = () => {
-    return (
+    return (<>
         <ItemList />
+        </>
     )
 };
 
