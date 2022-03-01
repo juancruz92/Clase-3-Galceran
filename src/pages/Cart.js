@@ -36,6 +36,7 @@ const Cart = () => {
       .then((response) => {
         console.log("Compra realizada exitosamente", response.id);
         navigate(`/CheckOut/${response.id}`);
+        clearAll();
       })
       .catch((err) => console.log("hubo un error", err));
   };
@@ -51,12 +52,14 @@ const Cart = () => {
   }, [valorTotal]);
 
   return cart.length === 0 ? (
-    <div>
-      No tienes productos en tu carrito, elije tu compra{" "}
-      <Link to="/">Aqui!</Link>
+    <div className="carritoVacio">
+      <Link to="/">
+      No tienes productos en tu carrito, haz click AQUI!{" "}
+      para seguir comprando.
+      </Link>
     </div>
   ) : (
-    <div>
+    <div className="cartContainer">
       <h1>Carrito</h1>
       <h2>Total compra: $ {totalCompra}</h2>
       <div className="itemListDiv">
@@ -75,28 +78,30 @@ const Cart = () => {
         })}
       </div>
       <button onClick={clearAll}>Eliminar todos los productos</button>
-      <h1>Introduzca sus datos</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nombre</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Escriba su nombre"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label htmlFor="phone">Telefono</label>
-        <input
-          type="number"
-          id="phone"
-          name="phone"
-          placeholder="Escriba su telefono"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <input type="submit" value="Finalizar Compra" />
-      </form>
+      <div className="formularioCompra">
+        <h1>Introduzca sus datos</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Nombre</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Escriba su nombre"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <label htmlFor="phone">Telefono</label>
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            placeholder="Escriba su telefono"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <input type="submit" value="Finalizar Compra" />
+        </form>
+      </div>
     </div>
   );
 };

@@ -12,12 +12,21 @@ const CheckOutPage = () => {
       .doc(orderId)
       .get()
       .then((response) => setOrder({ id: response.id, ...response.data() }));
+
+
   }, [orderId]);
 
+
+  if (!order.id) {
+      return <p>cargando...</p>;
+  }
   return (
     <div>
-      <h1>Gracias por su compra!</h1>
-      <h2>Detalle de su compra:</h2>
+      <h1>Gracias por su compra! {order.buyer.name}</h1>
+      <h2>Usted compro: </h2>
+      <p>{order.items.cart[0].item.name}</p>
+      <h2>El numero identificador de su compra es el: </h2>
+      <h3>{orderId}</h3>
     </div>
   );
 };

@@ -1,24 +1,34 @@
 import CartWidget from "../CartWidget/CartWidget";
-import {Link} from "react-router-dom"
-import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
+// import { useCart } from "../../context/CartContext";
 
 function Navbar() {
-    const { cart } = useCart();
+  // const { cart } = useCart();
 
-    return <>
-        <nav className="navegador">
-            <p className="brand"><Link to ="/">BRAND</Link></p>
-            <ul className="elementosNav">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/Categorys/Running">Running</Link></li>
-                <li><Link to="/Categorys/Urban">Urban</Link></li>
-                <li><Link to="Cart">Cart</Link></li>
-            </ul>   
-            {cart.length ? <CartWidget/> : null}
-
-
-        </nav>
-    </>;
+  return (
+    <>
+      <nav className="navegador">
+        <p className="brand">
+          <Link to="/">ZAPATILLAS.COM</Link>
+        </p>
+        <ul className="elementosNav">
+          <li>
+            <Link to="/">HOME</Link>
+          </li>
+          <li>
+            <Link to="/Categorys/Running">RUNNING</Link>
+          </li>
+          <li>
+            <Link to="/Categorys/Urban">URBAN</Link>
+          </li>
+          <li>
+            <Link to="Cart">CARRITO</Link>
+          </li>
+        </ul>
+        <CartWidget />
+      </nav>
+    </>
+  );
 }
 
 export default Navbar;

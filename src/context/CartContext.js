@@ -6,11 +6,18 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addItem = (item, quantity) => {
+    const newItem = { item, quantity };
     if (!isInCart(item.id)) {
-      const newItem = { item, quantity };
       setCart((prevState) => [...prevState, newItem]);
-    } else {
-      alert("ya tienes este producto en tu carrito");
+    } else if (isInCart(item.id)) {
+      const updatedCart = cart.map((order) => {
+        if (order.item.id === item.id) {
+          return { ...order, quantity: quantity + order.quantity };
+        } else {
+          return order;
+        }
+      });
+      setCart(updatedCart);
     }
   };
 

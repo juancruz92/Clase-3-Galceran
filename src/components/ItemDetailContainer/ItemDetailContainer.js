@@ -5,7 +5,7 @@ import { getFirestore } from "../../firebase";
 
 function ItemDetailContainer() {
   const { productId } = useParams();
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
   const [productos, setProductos] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

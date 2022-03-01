@@ -5,7 +5,6 @@ function CartWidget() {
   const { cart } = useCart();
 
   var cantidadDeProductosNeto = 0;
-  
 
   cart.forEach((compra) => {
     cantidadDeProductosNeto += compra.quantity;
@@ -16,8 +15,8 @@ function CartWidget() {
   return (
     <>
       <div className="carrito">
-        <p style={{ color: "white" }}>{cantidadDeProductosNeto} Productos en carrito</p>
         <img src={logo} alt="algo"></img>
+        <p style={{ color: "black" }}>{cantidadDeProductosNeto}</p>
       </div>
     </>
   );

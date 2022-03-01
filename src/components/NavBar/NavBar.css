@@ -1,26 +1,28 @@
-.brand {
-    font-family: 'Times New Roman', Times, serif;
-    color: white;
-    padding: 3px 3px 3px 6px;
+.brand a {
+    color: black;
+    padding: 40px 3px 3px 6px;
 }
 
 .elementosNav {
     list-style: none;
     display: flex;
-    color: white;
+    color: black;
+    position: relative;
+    right: 30px
 }
 
-.elementosNav li {
+.elementosNav li a {
     padding: 3px;
 }
 
 .navegador {
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: yellow;
 }
 
 .carrito {
     display: flex;
     justify-content: flex-end;
+    padding-right: 40px;
 }

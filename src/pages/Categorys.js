@@ -30,13 +30,6 @@ const Categorys = () => {
     };
 
     getDataFromFireStore();
-
-    // setIsLoading(true);
-    // fetch(URL)
-    //   .then((response) => response.json())
-    //   .then((json) => setProducts(json))
-    //   .catch((err) => setError(err))
-    //   .finally(() => setIsLoading(false));
   }, [category]);
 
   console.log(products);
